@@ -1,4 +1,5 @@
 const Post = require("../models/posts");
+const Comment = require("../models/comments");
 
 module.exports = function(router){
 	
@@ -51,5 +52,45 @@ module.exports = function(router){
 		});
 		
 	});
-
+	
+	// API get all comments from a spesific post
+	router.get("/posts/:_id/comments", function(req, res) {
+		
+		// get the post ID
+		const _id = req.params._id;
+		
+		Comment.get(_id, function(err, comments){			
+			if (err) {	
+				res.status(500);
+				res.json({_message: err});
+			} else {
+				res.json({ "_data": comments });		
+			}
+		});
+		
+	});
+	
+	// API create new comment on spesific post
+	//
+	// Body (URL-encoded):
+	// comment=<comment>&author=<author>
+	
+	router.post("/posts/:_id/comments", function(req, res) {
+	
+		var IDPost = req.params._id;
+	
+		var comment = req.body.comment;
+		var author = req.body.author;
+		
+		Comment.create(IDPost, comment, author, function(err, posts){			
+			if (err) {	
+				res.status(500);
+				res.json({_message: err});
+			} else {
+				res.json({ "_data": posts });		
+			}
+		});
+		
+	});
+	
 };

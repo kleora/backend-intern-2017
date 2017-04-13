@@ -20,7 +20,10 @@ app.use(function(req,res,next){
 	}
 });
 
-app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(bodyParser.urlencoded({ extended: false }));
+
+// support URL-encoded bodies
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // load api routes
 const api_router = require("./api");

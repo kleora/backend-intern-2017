@@ -1,3 +1,4 @@
+// main dependencies
 const http = require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -5,6 +6,9 @@ const mongoose = require('mongoose');
 
 const app = express();
 app.server = http.createServer(app);
+
+// config file
+var config = require('config');
 
 // allow origin and use url-encoded body for POST
 app.use(function(req,res,next){
@@ -30,17 +34,19 @@ const api_router = require("./api");
 app.use("/api", api_router);
 
 // Connect db
-const connection = mongoose.connect("mongodb://localhost:27017/intern-2017").connection;
+//const connection = mongoose.connect("mongodb://localhost:27017/intern-2017").connection;
+const connection = mongoose.connect(config.mongoURI[app.settings.env]).connection;
 
 // Call startServer once finished connecting to mongodb
 connection
 	.on("error", console.error)
-	.on("disconnected", () => { console.log("db disconnected"); })
+	.on("disconnected", function() { console.log("db disconnected"); })
 	.once("open", startServer);
 	
 // start server on port 3000
 function startServer(){
 	app.server.listen(3000);
+	console.log("Database connected: " + config.mongoURI[app.settings.env]);
 	console.log("Server started on port 3000");
 }
 
@@ -54,4 +60,5 @@ function gracefulExit() {
   });
 }
 
+// for testing
 module.exports = app;

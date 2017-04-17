@@ -26,7 +26,7 @@ Comment.get = function(IDComment, callback) {
 };
 
 /* Create new comment on spesific post */
-Comment.create = function(IDPost, comment, author, callback) {
+Comment.create = function(testOrDev, IDPost, comment, author, callback) {
 	
 	"use strict";
 	let comm = new Comment({
@@ -41,12 +41,24 @@ Comment.create = function(IDPost, comment, author, callback) {
 			return callback(err);
 		}
 		
-		var new_obj = {"__v": 0, 
-					"_id": obj._id, 
-					"comment": obj.comment, 
-					"author": obj.author,
-					"timestamp": obj.timestamp
-		};
+		var new_obj;
+		
+		if (testOrDev == "development") {
+			new_obj = {"__v": 0, 
+						"_id": obj._id, 
+						"comment": obj.comment, 
+						"author": obj.author,
+						"timestamp": obj.timestamp
+					};
+		} else {
+			new_obj = {"__v": 0, 
+						"_id": obj._id, 
+						"_idPost": obj._idPost,
+						"comment": obj.comment, 
+						"author": obj.author,
+						"timestamp": obj.timestamp
+					};
+		}
 		
 		callback(null, new_obj);
 	});

@@ -16,7 +16,9 @@ var Post = mongoose.model('posts', schema);
 
 /* Create new post */
 Post.create = function (title, content, author, callback){
-	let post = new Post({
+
+	//"use strict";
+	var post = new Post({
 		_id: new ObjectId(),
 		title, content, author,
 		timestamp: new Date()
@@ -28,6 +30,7 @@ Post.create = function (title, content, author, callback){
 		}
 		callback(null, obj.toObject());
 	});
+
 };
 
 /* List all posts without their content sorted by creation time */

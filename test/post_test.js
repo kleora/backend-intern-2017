@@ -14,14 +14,14 @@ mongoose.Promise = global.Promise;
 chai.use(chaiHttp);
 chai.use(chaiJsonSchema);
 
-/*before(function(done) {
+before(function(done) {
     mockgoose.prepareStorage().then(function() {
         mongoose.connect('mongodb://localhost:27017/TestingDB', function(err) {
             done(err);
         });
     });
 });
-*/
+
 
 var postListResponse = {
     title: 'post schema GET all post',

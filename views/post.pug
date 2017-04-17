@@ -2,15 +2,20 @@ extends layout
 
 block content
 
-  .index
-    .col-xs-12.col-md-6.col-md-offset-3
-      form(action="/post", method="post")
-        .form-group.a
-          .signin
-            input.form-control(type="text", name="title", placeholder="Title", id="title")
-          .signin
-            textarea.form-control(type="text", name="content", placeholder="Content", id="content")
-          .signin
-            input.form-control(type="text", name="author", placeholder="Author", id="author")
-          .signin
-            button(type="submit", id="login", disabled) Log In
+  .post.container
+     each value in data
+      .col-sm-12.col-md-6.col-md-offset-3
+        .thumbnail
+          .caption
+            h3= value.title
+            p
+              b id : 
+              = value._id
+            p 
+              b timestamp : 
+              = value.timestamp
+            p 
+              b author : 
+              = value.author
+            p
+              a(href="/api/posts/"+value._id) more

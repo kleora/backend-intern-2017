@@ -1,0 +1,22 @@
+extends layout
+
+block content
+
+  .post_main
+    .jumbotron
+      .container
+        h1= data.title
+        p
+          b author : 
+          = data.author
+        p
+          b post id : 
+          = data._id
+        p
+          b timestamp : 
+          = data.timestamp
+        p
+          b content : 
+          = data.content
+        p
+          a(href="/api/posts/"+data._id+"/comments") comments

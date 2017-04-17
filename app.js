@@ -8,7 +8,7 @@ const app = express();
 app.server = http.createServer(app);
 
 // config file
-var config = require('config');
+var config = require('./config');
 
 // allow origin and use url-encoded body for POST
 app.use(function(req,res,next){
@@ -27,7 +27,11 @@ app.use(function(req,res,next){
 //app.use(bodyParser.urlencoded({ extended: false }));
 
 // support URL-encoded bodies
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());                                     
+app.use(bodyParser.urlencoded({extended: true}));               
+app.use(bodyParser.text());                                    
+app.use(bodyParser.json({ type: 'application/json'}));  
+
 
 // load api routes
 const api_router = require("./api");

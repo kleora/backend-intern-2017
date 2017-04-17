@@ -94,11 +94,9 @@ module.exports = function(router){
 		
 	});
 	
-	// API create new comment on spesific post
-	// [DEVELOPMENT STATE]
+	// API create new comment on spesific post [DEVELOPMENT STATE]
 	// Body (URL-encoded):
 	// comment=<comment>&author=<author>
-	
 	router.post("/posts/:_id/comments", function(req, res) {
 	
 		var IDPost = req.params._id;
@@ -118,11 +116,9 @@ module.exports = function(router){
 	});
 	
 	
-	// API create new comment on spesific post
-	// [TESTING STATE]
+	// API create new comment on spesific post [TESTING STATE]
 	// Body (URL-encoded):
 	// comment=<comment>&author=<author>
-	
 	router.post("/posts/:_id/comments/test", function(req, res) {
 	
 		var IDPost = req.params._id;

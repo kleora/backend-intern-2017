@@ -56,7 +56,8 @@ describe("Posts", function() {
 				
 				res.should.have.status(200);
 				res.should.be.json;
-				
+				res.body._data.should.be.a('array');
+
 				res.body._data[0].should.have.property('_id');
 				res.body._data[0].should.have.property('title');
 				res.body._data[0].should.have.property('author');
@@ -83,7 +84,8 @@ describe("Posts", function() {
 						
 						res.should.have.status(200);
 						res.should.be.json;
-						
+						res.body._data.should.be.a('object');
+
 						res.body._data.should.have.property('_id');
 						res.body._data.should.have.property('title');
 						res.body._data.should.have.property('author');
@@ -117,7 +119,8 @@ describe("Posts", function() {
 				
 					res.should.have.status(200);
 					res.should.be.json;
-					
+				    res.body._data.should.be.a('object');
+	
 					res.body._data.should.have.property('_id');
 					res.body._data.should.have.property('title');
 					res.body._data.should.have.property('author');
@@ -261,7 +264,8 @@ describe("Comments", function() {
 				
 				res.should.have.status(200);
 				res.should.be.json;
-			
+			    res.body._data.should.be.a('array');
+
 				res.body._data[0].should.have.property('_id');
 				res.body._data[0].should.have.property('author');
 				res.body._data[0].should.have.property('comment');
@@ -293,7 +297,8 @@ describe("Comments", function() {
 				
 					res.should.have.status(200);
 					res.should.be.json;
-						
+					res.body._data.should.be.a('object');
+
 					res.body._data.should.have.property('_id');
 					res.body._data.should.have.property('author');
 					res.body._data.should.have.property('comment');

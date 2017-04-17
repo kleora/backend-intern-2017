@@ -3,6 +3,10 @@ const Post = require("../models/posts");
 module.exports = function(router){
 	
 	// API list all posts
+    router.get("/", function(req, res){
+        res.render("index", {title : 'Prelo'});
+    });
+    
 	router.get("/posts", function(req, res){
 		Post.list(function(err, posts){			
 			if (err) {	
@@ -25,6 +29,11 @@ module.exports = function(router){
 				res.json({ "_data": post });		
 			}
 		});
+	});
+    
+    // API post by id
+	router.post("/posts", function(req, res){
+        
 	});
 
 };

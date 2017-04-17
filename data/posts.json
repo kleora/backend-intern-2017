@@ -1,0 +1,9 @@
+// Sample data for posts collection
+
+{
+    "_id" : ObjectId("58e1f7e678b4c104bd928dcb"),
+    "title" : "Test Post",
+    "content" : "Hello World, this is new!",
+    "author" : "user",
+    "timestamp" : ISODate("2017-04-02T09:37:34.002Z")
+}

@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "echo Test belum diimplementasikan"
+    "test": "mocha --timeout 1200000"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,12 @@
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "mongoose": "^4.9.3"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "chai-json-schema": "^1.4.0",
+    "mocha": "^3.2.0",
+    "mockgoose": "^7.1.1"
   }
 }

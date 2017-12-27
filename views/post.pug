@@ -1,0 +1,21 @@
+extends layout
+
+block content
+
+  .post.container
+     each value in data
+      .col-sm-12.col-md-6.col-md-offset-3
+        .thumbnail
+          .caption
+            h3= value.title
+            p
+              b id : 
+              = value._id
+            p 
+              b timestamp : 
+              = value.timestamp
+            p 
+              b author : 
+              = value.author
+            p
+              a(href="/api/posts/"+value._id) more

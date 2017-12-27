@@ -1,0 +1,12 @@
+extends layout
+
+block content
+
+  .index.container
+    .col-xs-12.col-md-6.col-md-offset-3
+      form(action="/api/posts", method="post")
+        .form-group
+            input.form-control(type="text", name="title", placeholder="Title", id="title")
+            textarea.form-control(type="text", name="content", placeholder="Content", id="content")
+            input.form-control(type="text", name="author", placeholder="Author", id="author")
+            button(type="submit", id="post") Post

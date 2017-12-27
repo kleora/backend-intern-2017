@@ -1,0 +1,9 @@
+// Sample data for comments collection
+
+{
+    "_id" : ObjectId("58e1f7e678b4c104bd928dc1"),
+    "author" : "komentator",
+    "comment" : "Ini komen ke seribu saya!",
+    "post_id" : "58e1f7e678b4c104bd928dcb",
+    "timestamp" : ISODate("2017-04-02T09:37:34.002Z")
+}
